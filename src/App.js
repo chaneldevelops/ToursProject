@@ -55,6 +55,7 @@ function App() {
 
   return (
     <main>
+      {/* <Navbar /> add in for future */}
        <Tours tours={tours} removeTour={removeTour}/> {/*Need a return if we're not loading */}
     </main>
   )
