@@ -9,6 +9,11 @@ function App() {
   const [loading, setLoading] = useState(true); //This is so we'll see the loading component
   const [tours, setTours] = useState([]);
 
+  //Delete function near Tours data but needs to be passed to Tour component
+  const removeTour = (id) => {
+    const newTours = tours.filter((tour) => tour.id !== id) //if tour doesnt match it'll return
+    setTours(newTours);
+  }
 
   const fetchTours = async () => {
     setLoading(true) //Can be an extra precaution for loading to show when fetch the data
@@ -38,7 +43,7 @@ function App() {
   }
   return (
     <main>
-       <Tours tours={tours}/> {/*Need a return if we're not loading */}
+       <Tours tours={tours} removeTour={removeTour}/> {/*Need a return if we're not loading */}
     </main>
   )
 }
