@@ -9,8 +9,14 @@ const Tour = ({id,image, info, price,name}) => {
         <h4>{name}</h4>
         <h4 className='tour-price'>${price}</h4>
       </div>
-      <p>{readMore ? info:`${info.substring(0,200)}`}</p> {/* controls character number 
-      to show by default */}
+      <p>{readMore ? info:`${info.substring(0,200)}`}...
+        <button onClick={() => setReadMore(!readMore)}> {/* setReadMore will pass
+        in the opposite of readMore */}
+          {readMore?'show less':'read more'} {/* toggle for show buttons */}
+          </button> 
+      </p> {/* controls character number 
+      to show by default if its not true (which is default) 
+      show 200 if it is show readMore */}
       <button className='delete-btn'>Not interested</button>
     </footer>
   </article>;
