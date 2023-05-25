@@ -13,7 +13,12 @@ function App() {
   const fetchTours = async () => {
     setLoading(true) //Can be an extra precaution for loading to show when fetch the data
     const response = await fetch(url);
+    const tours = await response.json(); //Run JSON since it has to be parsed
   }
+  useEffect(() => {
+    fetchTours();
+  },[]) //Use Effect to only run once on intital render
+
 
   if (loading){
     return (
