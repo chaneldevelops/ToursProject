@@ -41,6 +41,17 @@ function App() {
       </main>
     );
   }
+  if(tours.length === 0) { //If there are no tours
+    return <main>
+      <div className='title'>
+        <h2>no tours left</h2>
+        <button className='btn' onClick={fetchTours}>
+            Refresh
+          </button> 
+      </div>
+    </main>
+  } 
+
   return (
     <main>
        <Tours tours={tours} removeTour={removeTour}/> {/*Need a return if we're not loading */}
