@@ -12,8 +12,17 @@ function App() {
 
   const fetchTours = async () => {
     setLoading(true) //Can be an extra precaution for loading to show when fetch the data
-    const response = await fetch(url);
+
+    try {
+      const response = await fetch(url);
     const tours = await response.json(); //Run JSON since it has to be parsed
+    setLoading(false); // originally start with loading then set to false ==> to show tours
+    setTours(tours) //Tours fetched from API
+    } catch (error) {
+      setLoading(false)
+      console.log(error)
+    }
+    
   }
   useEffect(() => {
     fetchTours();
