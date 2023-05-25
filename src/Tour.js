@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 const Tour = ({id,image, info, price,name}) => {
+  const [readMore, setReadMore] = useState(false) //this toggles it off by default
   return <article className='single-tour'>
     <img src={image} alt={name} />
     <footer>
@@ -8,7 +9,8 @@ const Tour = ({id,image, info, price,name}) => {
         <h4>{name}</h4>
         <h4 className='tour-price'>${price}</h4>
       </div>
-      <p>{info}</p>
+      <p>{readMore ? info:`${info.substring(0,200)}`}</p> {/* controls character number 
+      to show by default */}
       <button className='delete-btn'>Not interested</button>
     </footer>
   </article>;
