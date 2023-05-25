@@ -38,7 +38,7 @@ function App() {
   }
   return (
     <main>
-       <Tours /> {/*Need a return if we're not loading */}
+       <Tours tours={tours}/> {/*Need a return if we're not loading */}
     </main>
   )
 }
